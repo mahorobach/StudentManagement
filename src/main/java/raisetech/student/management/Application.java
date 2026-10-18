@@ -1,6 +1,7 @@
 package raisetech.student.management;
 
-import org.apache.commons.lang3.StringUtils;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +11,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 
 public  class  Application {
+
+	@Autowired
+	private StudentRepository repository;
+
+	@Autowired
+	private CourseRepository courserepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
- @GetMapping("/hello")
-	public String hello() {
-		return  "Hello, World";
- }
+
+	@GetMapping("/studentList")
+	public List<Student> getStudentList() {
+		return repository.search();
+	}
+
+	@GetMapping("/studentcourseList")
+	public  List<Course> getCoursesList(){
+		return courserepository.search();
+	}
+
 }
