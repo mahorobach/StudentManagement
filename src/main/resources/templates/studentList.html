@@ -9,6 +9,7 @@
 <table border="1">
   <thead>
   <tr>
+    <th>アイコン</th>
     <th>ID</th>
     <th>NAME</th>
     <th>カナ名</th>
@@ -22,6 +23,9 @@
   </thead>
   <tbody>
   <tr th:each="studentDetail : ${studentList}">
+    <td >
+      <img th:src="@{'/images/' + ${studentDetail.student.icon}}" width="100" height="100" alt="生徒のアイコン">
+    </td>
     <td th:text="${studentDetail.student.id}">1</td>
     <td th:text="${studentDetail.student.name}">山田太郎</td>
     <td th:text="${studentDetail.student.kanaName}">ヤマダタロウ</td>
