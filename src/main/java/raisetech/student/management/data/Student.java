@@ -17,6 +17,8 @@ private int age;
 private String sex;
 private String remark;
 private boolean isDeleted;
+
+private String icon;
 }
 
 
